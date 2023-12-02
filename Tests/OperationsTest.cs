@@ -1,30 +1,33 @@
-namespace MathLibraryTests;
+namespace MathLibraryTest;
 
 public class Tests
 {
-    [TestMethod]
+    [SetUp]
+    public void Setup() { }
+
+    [Test]
     public void TestDivision4by2()
     {
         MathLibrary libInstance = new();
         double result = libInstance.Div(4, 2);
         double expected = 2;
 
-        Assert.Equals(expected, result);
+        Assert.AreEqual(expected, result);
     }
 
-    [TestMethod]
+    [Test]
     public void TestDivision0by0()
     {
         MathLibrary libInstance = new();
         double result = libInstance.Div(0, 0);
         double expected = 0;
 
-        Assert.Equals(expected, result);
+        Assert.AreEqual(expected, result);
     }
 
-    [TestMethod]
+    [Test]
     public void TestDivisionValueByZero()
     {
-        Assert.ThrowsException<DivideByZeroException>(() => new MathLibrary().Div(155, 0));
+        Assert.Throws<DivideByZeroException>(() => new MathLibrary().Div(155, 0));
     }
 }

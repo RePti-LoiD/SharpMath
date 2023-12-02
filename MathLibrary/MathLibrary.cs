@@ -1,4 +1,4 @@
-﻿namespace MathLibrary;
+﻿namespace SharpMath;
 
 public class MathLibrary
 {
