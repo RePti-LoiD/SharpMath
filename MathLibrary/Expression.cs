@@ -10,4 +10,9 @@ public class Expression
     }
 
     public double Evaluate(Dictionary<Variable, double> values) => expression(values);
+
+    public static Expression operator *(Expression a, Expression b)
+    {
+        return new Expression((dict) => a.Evaluate(dict) * b.Evaluate(dict));
+    }
 }

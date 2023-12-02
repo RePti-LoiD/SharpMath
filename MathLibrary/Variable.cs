@@ -23,8 +23,25 @@ public class Variable
         return new Expression((dict) => a.Eval(dict[a]) * b.Eval(dict[b]));
     }
 
+
     public static Expression operator *(Expression a, Variable b)
     {
         return new Expression((dict) => a.Evaluate(dict) * b.Eval(dict[b]));
+    }
+
+    public static Expression operator *(Variable a, Expression b)
+    {
+        return b * a;
+    }
+
+
+    public static Variable operator *(double a, Variable b)
+    {
+        return new Variable(b.VarName, (x) => x * a);
+    }
+
+    public static Variable operator *(Variable a, double b)
+    {
+        return b * a;
     }
 }
